@@ -1,0 +1,50 @@
+{% extends 'registration/base.html' %}
+{% block title  %}Contacto{% endblock  %}
+{% load static %}
+{% block content %}
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">INICIAR SESION</h2>
+            <h3 class="section-subheading text-muted">ingrese su usuario y contraseña</h3>
+            {% if 'ok' in  request.GET %}
+             <p><b>Su mensaje fue enviado, nos pondremos en contacto lo antes posible.</b></p>
+            {% endif %}
+
+            <body>
+    
+                <div class="container-form">
+        
+                    <hr>
+        
+                    <div class="login-container">
+        
+                        {% if form.errores %}
+            
+                    <div class="alert alert-danger">tu usuario y contraseña no coinciden
+
+        
+                    </div>
+        
+                    {% endif %}
+        
+                <form id="form-login" method="post" action="">
+                 {% csrf_token%}
+
+                <div class="w450" id="username">
+                    {{ form.username}}
+                 </div>
+                 <div class="w450" id="password">
+                {{ form.password}}
+                 </div>
+                 <button id="btn-registrar" class="button_large">entrar</button>
+                 <div class="clearfix"></div>
+
+                  </form>
+                 <a href="#" class="txt_verde txr_center mt15 mb20" style="display: block">aviso de privacidad</a>
+
+        </div>
+    </div>
+            </body>
+
+{% endblock %}
